@@ -9,6 +9,15 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var imageOfProducts: UIImageView!
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var sizeLabel: UILabel!
+    
+    @IBOutlet weak var manufactureLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
