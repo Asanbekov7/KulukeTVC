@@ -9,7 +9,7 @@ import UIKit
 
 class MainViewController: UITableViewController {
 
-    let storageMaterials = ["Armatura", "Truba", "Listi", "Kruglie Trubi", "Shvelleri", "Fanera 18" ]
+    let storageMaterials = ["Armatura", "Profilnaya Truba", "Listi", "Kruglie Trubi", "Shvelleri", "Fanera 18", "Dvutavr", "Ugolki"]
     
     
     override func viewDidLoad() {
@@ -28,10 +28,12 @@ class MainViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell ", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        // Configure the cell...
+        cell.textLabel?.text = storageMaterials[indexPath.row]
+        cell.imageView?.image = UIImage(named: storageMaterials[indexPath.row])
 
+        
         return cell
     }
     
