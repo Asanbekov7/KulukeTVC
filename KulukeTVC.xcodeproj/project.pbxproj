@@ -15,6 +15,7 @@
 		F3E70DEA29A3554B00BE4B5D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E70DE929A3554B00BE4B5D /* MainViewController.swift */; };
 		F3E70DEC29A381DF00BE4B5D /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E70DEB29A381DF00BE4B5D /* CustomTableViewCell.swift */; };
 		F3E70DEE29A3895600BE4B5D /* StorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E70DED29A3895600BE4B5D /* StorageModel.swift */; };
+		F3E70DF129A3A16E00BE4B5D /* NewStorageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E70DF029A3A16E00BE4B5D /* NewStorageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		F3E70DE929A3554B00BE4B5D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F3E70DEB29A381DF00BE4B5D /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		F3E70DED29A3895600BE4B5D /* StorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageModel.swift; sourceTree = "<group>"; };
+		F3E70DF029A3A16E00BE4B5D /* NewStorageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStorageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +64,9 @@
 			children = (
 				F3E70DD529A350F300BE4B5D /* AppDelegate.swift */,
 				F3E70DE929A3554B00BE4B5D /* MainViewController.swift */,
-				F3E70DEF29A3896300BE4B5D /* Models */,
+				F3E70DF029A3A16E00BE4B5D /* NewStorageViewController.swift */,
 				F3E70DEB29A381DF00BE4B5D /* CustomTableViewCell.swift */,
+				F3E70DEF29A3896300BE4B5D /* Models */,
 				F3E70DD729A350F300BE4B5D /* SceneDelegate.swift */,
 				F3E70DDB29A350F300BE4B5D /* Main.storyboard */,
 				F3E70DDE29A350F700BE4B5D /* Assets.xcassets */,
@@ -155,6 +158,7 @@
 				F3E70DEE29A3895600BE4B5D /* StorageModel.swift in Sources */,
 				F3E70DEA29A3554B00BE4B5D /* MainViewController.swift in Sources */,
 				F3E70DD629A350F300BE4B5D /* AppDelegate.swift in Sources */,
+				F3E70DF129A3A16E00BE4B5D /* NewStorageViewController.swift in Sources */,
 				F3E70DEC29A381DF00BE4B5D /* CustomTableViewCell.swift in Sources */,
 				F3E70DD829A350F300BE4B5D /* SceneDelegate.swift in Sources */,
 			);
