@@ -24,7 +24,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rPY-71-Ygz">
-                                            <rect key="frame" x="15" y="13" width="75" height="75"/>
+                                            <rect key="frame" x="15" y="12.666666666666664" width="75" height="75"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="75" id="rrW-z0-aZJ"/>
                                                 <constraint firstAttribute="width" constant="75" id="vQd-sy-5Tr"/>
@@ -46,7 +46,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manufacture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqV-tL-PDW">
-                                                    <rect key="frame" x="0.0" y="63" width="271" height="21"/>
+                                                    <rect key="frame" x="0.0" y="62.666666666666679" width="271" height="21.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -250,6 +250,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="hoq-3b-fc2"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="imageOfStorage" destination="FkS-Km-x83" id="QyO-4V-by2"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JKP-g1-UuY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="tqP-jg-WiS" userLabel="Exit" sceneMemberID="exit"/>

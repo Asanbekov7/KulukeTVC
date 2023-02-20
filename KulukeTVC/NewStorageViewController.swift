@@ -7,8 +7,10 @@
 
 import UIKit
 
-class NewStorageViewController: UITableViewController {
+class NewStorageViewController: UITableViewController, UINavigationControllerDelegate {
 
+    @IBOutlet weak var imageOfStorage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -59,16 +61,27 @@ extension NewStorageViewController: UITextFieldDelegate {
     }
 }
 
-//MARK: Работа над картинкой 1 ячейки
+//MARK: Данный метод позволяет юзеру редактировать изображение
 
-extension NewStorageViewController {
+extension NewStorageViewController: UIImagePickerControllerDelegate {
     func chooseImagePicker(source: UIImagePickerController.SourceType) {
         
         if UIImagePickerController.isSourceTypeAvailable(source) {
             let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
             imagePicker.allowsEditing = true
             imagePicker.sourceType = source
             present(imagePicker, animated: true)
         }
+    }
+    
+    //MARK: Данный метод нужен для того что бы присвоить реадктированное изображение в imageOfStorage
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        imageOfStorage.image = info[.editedImage] as? UIImage
+        imageOfStorage.contentMode = .scaleAspectFill
+        imageOfStorage.clipsToBounds = true
+        dismiss(animated: true)
     }
 }
