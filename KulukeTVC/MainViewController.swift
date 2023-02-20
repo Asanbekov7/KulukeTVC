@@ -9,8 +9,9 @@ import UIKit
 
 class MainViewController: UITableViewController {
 
-    let storageMaterials = ["Armatura", "Profilnaya Truba", "Listi", "Kruglie Trubi", "Shvelleri", "Fanera 18", "Dvutavr", "Ugolki"]
+
     
+    let storage = Storage.getStorage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,27 +24,24 @@ class MainViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storageMaterials.count
+        return storage.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
 
-        cell.nameLabel.text = storageMaterials[indexPath.row]
-        cell.imageOfProducts.image = UIImage(named: storageMaterials[indexPath.row])
-        cell.manufactureLabel.layer.cornerRadius = cell.imageOfProducts.frame.size.height / 2
-        cell.manufactureLabel.clipsToBounds = true
+        cell.nameLabel.text = storage[indexPath.row].name
+        cell.sizeLabel.text = storage[indexPath.row].size
+        cell.manufactureLabel.text = storage[indexPath.row].manufacture
+        cell.imageOfProducts.image = UIImage(named: storage[indexPath.row].image)
+        cell.imageOfProducts.layer.cornerRadius = cell.imageOfProducts.frame.size.height / 2
+        cell.imageOfProducts.clipsToBounds = true
 
         
         return cell
     }
 
-    //MARK: - Table View Delegate
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
     
 
     
