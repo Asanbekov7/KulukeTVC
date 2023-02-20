@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--My products-->
         <scene sceneID="eOe-5B-sNo">
             <objects>
                 <tableViewController id="vch-rO-3Sj" customClass="MainViewController" customModule="KulukeTVC" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,7 +30,7 @@
                             <outlet property="delegate" destination="vch-rO-3Sj" id="hcP-1H-yrj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="CqF-dM-Fgb"/>
+                    <navigationItem key="navigationItem" title="My products" id="CqF-dM-Fgb"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mjo-RI-P4f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -43,6 +43,12 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xlf-db-31t">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="25"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="0.0"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="vch-rO-3Sj" kind="relationship" relationship="rootViewController" id="aEy-BY-8oq"/>
