@@ -8,8 +8,16 @@
 import UIKit
 
 class NewStorageViewController: UITableViewController, UINavigationControllerDelegate {
-
-    @IBOutlet weak var imageOfStorage: UIImageView!
+    
+    var newStorage: Storage?
+    var imageIsChange = false
+    
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    @IBOutlet weak var placeImage: UIImageView!
+    @IBOutlet weak var placeName: UITextField!
+    @IBOutlet weak var placeSize: UITextField!
+    @IBOutlet weak var placeManufacture: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +25,9 @@ class NewStorageViewController: UITableViewController, UINavigationControllerDel
         // данный метод нужен для избавление от лишей разлиновки где нет контента под TableVIewCell
         tableView.tableFooterView = UIView()
   
+        saveButton.isEnabled = false
+        
+        placeName.addTarget(self, action: #selector(textFieldChanged) , for: .editingChanged)
     }
     
     //MARK: - Table View Delegate
@@ -52,9 +63,24 @@ class NewStorageViewController: UITableViewController, UINavigationControllerDel
         } else {
             view.endEditing(true)
         }
+        }
+    func saveNewStorage() {
+        
+        var image: UIImage?
+        
+        if imageIsChange {
+            image = placeImage.image
+        } else {
+            image = UIImage(imageLiteralResourceName: "photomat")
+        }
+        
+        
+        newStorage = Storage(name: placeName.text!, size: placeSize.text, manufacture: placeManufacture.text, image: image, storageImage: nil)
     }
-
  
+    @IBAction func cancelAtion(_ sender: Any) {
+        dismiss(animated: true)
+    }
 }
 
 //MARK: - Text Field Delegate
@@ -65,6 +91,15 @@ extension NewStorageViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    @objc private func textFieldChanged() {
+        
+        if placeName.text?.isEmpty == false {
+            saveButton.isEnabled = true
+        } else {
+            saveButton.isEnabled = false
+        }
     }
 }
 
@@ -86,9 +121,12 @@ extension NewStorageViewController: UIImagePickerControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        imageOfStorage.image = info[.editedImage] as? UIImage
-        imageOfStorage.contentMode = .scaleAspectFill
-        imageOfStorage.clipsToBounds = true
+        placeImage.image = info[.editedImage] as? UIImage
+        placeImage.contentMode = .scaleAspectFill
+        placeImage.clipsToBounds = true
+        
+        imageIsChange = true
+        
         dismiss(animated: true)
     }
 }

@@ -12,7 +12,9 @@ class MainViewController: UITableViewController {
 
 
     
-    let storage = Storage.getStorage()
+    var storages = Storage.getStorage()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,17 +27,25 @@ class MainViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storage.count
+        return storages.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
 
-        cell.nameLabel.text = storage[indexPath.row].name
-        cell.sizeLabel.text = storage[indexPath.row].size
-        cell.manufactureLabel.text = storage[indexPath.row].manufacture
-        cell.imageOfProducts.image = UIImage(named: storage[indexPath.row].image)
+        let storageArray = storages[indexPath.row]
+        cell.nameLabel.text = storageArray.name
+        cell.sizeLabel.text = storageArray.size
+        cell.manufactureLabel.text = storageArray.manufacture
+        
+        if storageArray.image == nil {
+            cell.imageOfProducts.image = UIImage(named: storageArray.storageImage!)
+        } else {
+            cell.imageOfProducts.image = storageArray.image
+        }
+        
+        
         cell.imageOfProducts.layer.cornerRadius = cell.imageOfProducts.frame.size.height / 2
         cell.imageOfProducts.clipsToBounds = true
 
@@ -56,7 +66,14 @@ class MainViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    @IBAction func cancelAction(_ segue: UIStoryboardSegue) {}
+    @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
+        
+        guard let newStorageVC = segue.source as? NewStorageViewController else {return}
+        newStorageVC.saveNewStorage()
+        storages.append(newStorageVC.newStorage!)
+        tableView.reloadData()
+    }
+    
     
 
 }
