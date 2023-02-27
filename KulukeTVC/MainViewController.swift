@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MainViewController: UITableViewController {
    
 
 
     
-    var storages = Storage.getStorage()
+    var storages: Results<Storage>!
     
     
     
@@ -25,33 +26,33 @@ class MainViewController: UITableViewController {
     // MARK: - Table view data source
 
 
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storages.count
-    }
-
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
-
-        let storageArray = storages[indexPath.row]
-        cell.nameLabel.text = storageArray.name
-        cell.sizeLabel.text = storageArray.size
-        cell.manufactureLabel.text = storageArray.manufacture
-        
-        if storageArray.image == nil {
-            cell.imageOfProducts.image = UIImage(named: storageArray.storageImage!)
-        } else {
-            cell.imageOfProducts.image = storageArray.image
-        }
-        
-        
-        cell.imageOfProducts.layer.cornerRadius = cell.imageOfProducts.frame.size.height / 2
-        cell.imageOfProducts.clipsToBounds = true
-
-        
-        return cell
-    }
+//
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return storages.count
+//    }
+//
+//
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
+//
+//        let storageArray = storages[indexPath.row]
+//        cell.nameLabel.text = storageArray.name
+//        cell.sizeLabel.text = storageArray.size
+//        cell.manufactureLabel.text = storageArray.manufacture
+//
+//        if storageArray.image == nil {
+//            cell.imageOfProducts.image = UIImage(named: storageArray.storageImage!)
+//        } else {
+//            cell.imageOfProducts.image = storageArray.image
+//        }
+//
+//
+//        cell.imageOfProducts.layer.cornerRadius = cell.imageOfProducts.frame.size.height / 2
+//        cell.imageOfProducts.clipsToBounds = true
+//
+//
+//        return cell
+//    }
 
     
 
@@ -70,7 +71,7 @@ class MainViewController: UITableViewController {
         
         guard let newStorageVC = segue.source as? NewStorageViewController else {return}
         newStorageVC.saveNewStorage()
-        storages.append(newStorageVC.newStorage!)
+//        storages.append(newStorageVC.newStorage!)
         tableView.reloadData()
     }
     

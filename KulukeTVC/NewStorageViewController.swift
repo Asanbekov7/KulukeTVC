@@ -9,7 +9,7 @@ import UIKit
 
 class NewStorageViewController: UITableViewController, UINavigationControllerDelegate {
     
-    var newStorage: Storage?
+    var newStorage = Storage()
     var imageIsChange = false
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -21,7 +21,7 @@ class NewStorageViewController: UITableViewController, UINavigationControllerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // данный метод нужен для избавление от лишей разлиновки где нет контента под TableVIewCell
         tableView.tableFooterView = UIView()
   
@@ -75,7 +75,7 @@ class NewStorageViewController: UITableViewController, UINavigationControllerDel
         }
         
         
-        newStorage = Storage(name: placeName.text!, size: placeSize.text, manufacture: placeManufacture.text, image: image, storageImage: nil)
+//        newStorage = Storage(name: placeName.text!, size: placeSize.text, manufacture: placeManufacture.text, image: image, storageImage: nil)
     }
  
     @IBAction func cancelAtion(_ sender: Any) {

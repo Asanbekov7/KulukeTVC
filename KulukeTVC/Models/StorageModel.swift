@@ -5,25 +5,14 @@
 //  Created by Темирлан Асанбеков on 20/2/23.
 //
 
+import RealmSwift
 import UIKit
 
-struct Storage {
-    var name: String
-    var size: String?
-    var manufacture: String?
-    var image: UIImage?
-    var storageImage: String?
+class Storage: Object {
     
-   static let storageMaterials = ["Armatura", "Profilnaya Truba", "Listi", "Kruglie Trubi", "Shvelleri", "Fanera 18", "Dvutavr", "Ugolki"]
-    
-    
-   static func getStorage() -> [Storage] {
-        
-       var storages = [Storage]()
-        
-        for storage in storageMaterials {
-            storages.append(Storage(name: storage, size: "Размер продукта", manufacture: "made in Russia", image: nil, storageImage: storage))
-        }
-        return storages
-    }
+    @objc dynamic var name = ""
+    @objc dynamic var size: String?
+    @objc dynamic var manufacture: String?
+    @objc dynamic var imageData: Data?
+   
 }
