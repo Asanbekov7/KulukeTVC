@@ -15,4 +15,12 @@ class Storage: Object {
     @objc dynamic var manufacture: String?
     @objc dynamic var imageData: Data?
    
+    convenience init(name: String, size: String?, manufacture: String?, imageData: Data?) {
+    
+        self.init()
+        self.name = name
+        self.size = size
+        self.manufacture = manufacture
+        self.imageData = imageData
+    }
 }

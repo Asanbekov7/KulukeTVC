@@ -9,7 +9,7 @@ import UIKit
 
 class NewStorageViewController: UITableViewController, UINavigationControllerDelegate {
     
-    var newStorage = Storage()
+  
     var imageIsChange = false
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -65,7 +65,7 @@ class NewStorageViewController: UITableViewController, UINavigationControllerDel
         }
         }
     func saveNewStorage() {
-        
+        let newStorage = Storage()
         var image: UIImage?
         
         if imageIsChange {
@@ -73,9 +73,13 @@ class NewStorageViewController: UITableViewController, UINavigationControllerDel
         } else {
             image = UIImage(imageLiteralResourceName: "photomat")
         }
+        let imageData = image?.pngData()
         
-        
-//        newStorage = Storage(name: placeName.text!, size: placeSize.text, manufacture: placeManufacture.text, image: image, storageImage: nil)
+        newStorage.name = placeName.text!
+        newStorage.size = placeSize.text
+        newStorage.manufacture = placeManufacture.text
+        newStorage.imageData = imageData
+
     }
  
     @IBAction func cancelAtion(_ sender: Any) {
