@@ -29,6 +29,7 @@ class NewStorageViewController: UITableViewController, UINavigationControllerDel
         saveButton.isEnabled = false
         
         placeName.addTarget(self, action: #selector(textFieldChanged) , for: .editingChanged)
+        setupEditScreen()
     }
     
     //MARK: - Table View Delegate
@@ -84,7 +85,27 @@ class NewStorageViewController: UITableViewController, UINavigationControllerDel
        
         StorageManager.saveObject(newStorage)
     }
+    
+    private func setupEditScreen() {
+        if currentStorage != nil {
+            
+            setupNavigationBar()
+            
+            guard let data = currentStorage?.imageData, let image = UIImage(data: data) else {return}
+            placeImage.image = image
+            placeImage.contentMode = .scaleAspectFit
+            placeName.text = currentStorage?.name
+            placeManufacture.text = currentStorage?.manufacture
+            placeSize.text = currentStorage?.size
+        }
+    }
  
+    private func setupNavigationBar() {
+        navigationItem.leftBarButtonItem = nil
+        title = currentStorage?.name
+        saveButton.isEnabled = true
+    }
+    
     @IBAction func cancelAtion(_ sender: Any) {
         dismiss(animated: true)
     }
