@@ -23,4 +23,5 @@ class Storage: Object {
         self.manufacture = manufacture
         self.imageData = imageData
     }
+    
 }

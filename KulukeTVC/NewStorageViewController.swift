@@ -65,7 +65,9 @@ class NewStorageViewController: UITableViewController, UINavigationControllerDel
         }
         }
     func saveNewStorage() {
-        let newStorage = Storage()
+      
+        
+        
         var image: UIImage?
         
         if imageIsChange {
@@ -73,13 +75,13 @@ class NewStorageViewController: UITableViewController, UINavigationControllerDel
         } else {
             image = UIImage(imageLiteralResourceName: "photomat")
         }
-        let imageData = image?.pngData()
         
-        newStorage.name = placeName.text!
-        newStorage.size = placeSize.text
-        newStorage.manufacture = placeManufacture.text
-        newStorage.imageData = imageData
-
+        
+        let imageData = image?.pngData()
+       
+        let newStorage = Storage(name: placeName.text!, size: placeSize.text, manufacture: placeManufacture.text, imageData: imageData)
+       
+        StorageManager.saveObject(newStorage)
     }
  
     @IBAction func cancelAtion(_ sender: Any) {

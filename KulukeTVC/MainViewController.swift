@@ -49,8 +49,20 @@ class MainViewController: UITableViewController {
 
         return cell
     }
+    //MARK: Table View Delegate метод протокола позволяющая вызывать различные пункты меню свайпом по ячейке с право в лево
 
-    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let storage = storages[indexPath.row]
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
+            // Удаление ячейки
+            StorageManager.deleteObject(storage)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            completionHandler(true)
+        }
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        return configuration
+    }
+
 
     
 
@@ -67,7 +79,7 @@ class MainViewController: UITableViewController {
         
         guard let newStorageVC = segue.source as? NewStorageViewController else {return}
         newStorageVC.saveNewStorage()
-
+        
         tableView.reloadData()
     }
     

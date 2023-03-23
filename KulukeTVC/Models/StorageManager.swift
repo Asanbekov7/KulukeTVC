@@ -17,8 +17,15 @@ class StorageManager {
         try! realm.write {
             realm.add(storage)
         }
+        
     }
     
+    static func deleteObject(_ place: Storage) {
+        
+        try! realm.write {
+            realm.delete(place)
+        }
+    }
 //    теперь надо создать метод который будет возвращать данные из базы данных в распарсенном виде твоей модели Storage
 //    распарсить данные модели для realm
 //    что такое распарсить - парсинг данных json
