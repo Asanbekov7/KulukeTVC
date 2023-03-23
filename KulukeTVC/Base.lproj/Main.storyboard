@@ -68,6 +68,7 @@
                                     <outlet property="manufactureLabel" destination="hqV-tL-PDW" id="Zcx-dZ-lmp"/>
                                     <outlet property="nameLabel" destination="yd5-ll-Dp5" id="95W-y9-48b"/>
                                     <outlet property="sizeLabel" destination="fBZ-n3-xPq" id="Mgl-gw-Eoq"/>
+                                    <segue destination="CTm-Lp-lR3" kind="show" identifier="showDetail" id="Sgr-PS-6R7"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -86,7 +87,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mjo-RI-P4f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="339.69465648854958" y="-108.45070422535211"/>
+            <point key="canvasLocation" x="879" y="-111"/>
         </scene>
         <!--New Products-->
         <scene sceneID="dje-tR-qSi">
@@ -287,7 +288,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QcN-21-hgD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-404" y="-108"/>
+            <point key="canvasLocation" x="-124" y="-111"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dSd-5w-ICn">
@@ -305,9 +306,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yWd-VC-9RZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1238.9312977099237" y="-111.26760563380282"/>
+            <point key="canvasLocation" x="2166" y="-871"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Sgr-PS-6R7"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Photo" width="128" height="128"/>
         <systemColor name="systemBackgroundColor">

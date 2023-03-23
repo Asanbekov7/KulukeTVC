@@ -66,15 +66,19 @@ class MainViewController: UITableViewController {
 
     
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showDetail" {
+            guard let indexPath = tableView.indexPathForSelectedRow else {return}
+            let storage = storages[indexPath.row]
+            let newStorageVC = segue.destination as! NewStorageViewController
+            newStorageVC.currentStorage = storage
+        }
     }
-    */
+    
     @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
         
         guard let newStorageVC = segue.source as? NewStorageViewController else {return}

@@ -9,6 +9,7 @@ import UIKit
 
 class NewStorageViewController: UITableViewController, UINavigationControllerDelegate {
     
+    var currentStorage: Storage?
   
     var imageIsChange = false
     
