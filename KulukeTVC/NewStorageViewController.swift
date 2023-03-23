@@ -101,6 +101,9 @@ class NewStorageViewController: UITableViewController, UINavigationControllerDel
     }
  
     private func setupNavigationBar() {
+        if let topItem = navigationController?.navigationBar.topItem {
+            topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        }
         navigationItem.leftBarButtonItem = nil
         title = currentStorage?.name
         saveButton.isEnabled = true
