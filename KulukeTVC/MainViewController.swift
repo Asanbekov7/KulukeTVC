@@ -82,7 +82,7 @@ class MainViewController: UITableViewController {
     @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
         
         guard let newStorageVC = segue.source as? NewStorageViewController else {return}
-        newStorageVC.saveNewStorage()
+        newStorageVC.saveStorage()
         
         tableView.reloadData()
     }

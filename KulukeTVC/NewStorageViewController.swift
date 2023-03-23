@@ -66,8 +66,8 @@ class NewStorageViewController: UITableViewController, UINavigationControllerDel
             view.endEditing(true)
         }
         }
-    func saveNewStorage() {
-      
+    func saveStorage() {
+        
         
         
         var image: UIImage?
@@ -80,16 +80,26 @@ class NewStorageViewController: UITableViewController, UINavigationControllerDel
         
         
         let imageData = image?.pngData()
-       
+        
         let newStorage = Storage(name: placeName.text!, size: placeSize.text, manufacture: placeManufacture.text, imageData: imageData)
-       
-        StorageManager.saveObject(newStorage)
+        
+        if currentStorage != nil {
+            try! realm.write {
+                currentStorage?.name = newStorage.name
+                currentStorage?.manufacture = newStorage.manufacture
+                currentStorage?.size = newStorage.size
+                currentStorage?.imageData = newStorage.imageData
+            }
+        } else {
+            StorageManager.saveObject(newStorage)
+        }
     }
     
     private func setupEditScreen() {
         if currentStorage != nil {
             
             setupNavigationBar()
+            imageIsChange = true
             
             guard let data = currentStorage?.imageData, let image = UIImage(data: data) else {return}
             placeImage.image = image
