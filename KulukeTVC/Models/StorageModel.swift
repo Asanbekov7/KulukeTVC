@@ -14,6 +14,7 @@ class Storage: Object {
     @objc dynamic var size: String?
     @objc dynamic var manufacture: String?
     @objc dynamic var imageData: Data?
+    @objc dynamic var date = Date()
    
     convenience init(name: String, size: String?, manufacture: String?, imageData: Data?) {
     
