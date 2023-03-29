@@ -13,7 +13,7 @@
             <objects>
                 <tableViewController id="CTm-Lp-lR3" customClass="NewStorageViewController" customModule="KulukeTVC" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Og1-DD-qr9">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
@@ -151,6 +151,28 @@
                                                 <constraint firstItem="fFm-hG-9qY" firstAttribute="leading" secondItem="UFe-co-T5e" secondAttribute="leading" constant="16" id="jVw-gf-fyh"/>
                                                 <constraint firstAttribute="bottom" secondItem="fFm-hG-9qY" secondAttribute="bottom" constant="4" id="n9D-u2-dvG"/>
                                                 <constraint firstItem="fFm-hG-9qY" firstAttribute="top" secondItem="UFe-co-T5e" secondAttribute="top" constant="8" id="sKL-Lc-aoB"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="140" id="ZKv-To-DGW">
+                                        <rect key="frame" x="0.0" y="525" width="393" height="140"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZKv-To-DGW" id="Ebr-VW-0sk">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="140"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7dT-8H-h4M" customClass="RatingControll" customModule="KulukeTVC" customModuleProvider="target">
+                                                    <rect key="frame" x="70.666666666666686" y="48" width="252" height="44"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="starCount">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7dT-8H-h4M" firstAttribute="centerX" secondItem="Ebr-VW-0sk" secondAttribute="centerX" id="g4C-jm-04t"/>
+                                                <constraint firstItem="7dT-8H-h4M" firstAttribute="centerY" secondItem="Ebr-VW-0sk" secondAttribute="centerY" id="gvR-Yj-9Uf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -351,7 +373,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mPT-iA-okY"/>
+        <segue reference="d0j-mZ-H0z"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AZ" width="25" height="24"/>
