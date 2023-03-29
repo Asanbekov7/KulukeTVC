@@ -10,14 +10,22 @@ import RealmSwift
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
    
-
-
-    @IBOutlet weak var tableView: UITableView!
+    private let searchController = UISearchController(searchResultsController: nil)
+    private var storages: Results<Storage>!
+    private var filteredStorages: Results<Storage>!
+    private var ascendingSorting = true
+    private var searchBarIsEmpty: Bool {
+        guard let text = searchController.searchBar.text else { return false }
+        return text.isEmpty
+    }
+    private var isFiltering: Bool {
+        return searchController.isActive && !searchBarIsEmpty
+    }
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var reversSortingButton: UIBarButtonItem!
-    var storages: Results<Storage>!
-    var ascendingSorting = true
+  
     
     
     override func viewDidLoad() {
@@ -25,6 +33,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         storages = realm.objects(Storage.self)
  
+        // Setup search controller
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
 
     // MARK: - Table view data source
@@ -32,6 +46,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
 //
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+         if isFiltering {
+             return filteredStorages.count
+         }
+         
         return storages.isEmpty ? 0 : storages.count
     }
 
@@ -39,7 +57,13 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
 
-        let storageArray = storages[indexPath.row]
+         var storageArray = Storage()
+         if isFiltering {
+             storageArray = filteredStorages[indexPath.row]
+         } else {
+             storageArray = storages[indexPath.row]
+         }
+        
         cell.nameLabel.text = storageArray.name
         cell.sizeLabel.text = storageArray.size
         cell.manufactureLabel.text = storageArray.manufacture
@@ -76,7 +100,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             guard let indexPath = tableView.indexPathForSelectedRow else {return}
-            let storage = storages[indexPath.row]
+            let storage: Storage
+            if isFiltering {
+                storage = filteredStorages[indexPath.row]
+            } else {
+                storage = storages[indexPath.row]
+            }
             let newStorageVC = segue.destination as! NewStorageViewController
             newStorageVC.currentStorage = storage
         }
@@ -115,4 +144,15 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         tableView.reloadData()
     }
+}
+
+extension MainViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+    private func filterContentForSearchText(_ searchText: String) {
+        filteredStorages = storages.filter("name CONTAINS[c] %@ or manufacture CONTAINS[c] %@", searchText, searchText)
+        tableView.reloadData()
+    }
+    
 }
