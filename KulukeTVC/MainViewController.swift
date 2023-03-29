@@ -77,6 +77,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     //MARK: Table View Delegate метод протокола позволяющая вызывать различные пункты меню свайпом по ячейке с право в лево
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 
      func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let storage = storages[indexPath.row]

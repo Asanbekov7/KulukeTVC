@@ -13,7 +13,7 @@
             <objects>
                 <tableViewController id="CTm-Lp-lR3" customClass="NewStorageViewController" customModule="KulukeTVC" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Og1-DD-qr9">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
@@ -161,7 +161,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7dT-8H-h4M" customClass="RatingControll" customModule="KulukeTVC" customModuleProvider="target">
+                                                <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="252" placeholderIntrinsicHeight="44" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7dT-8H-h4M" customClass="RatingControll" customModule="KulukeTVC" customModuleProvider="target">
                                                     <rect key="frame" x="70.666666666666686" y="48" width="252" height="44"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="starCount">
@@ -207,7 +207,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JKP-g1-UuY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="tqP-jg-WiS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2165.6488549618321" y="-111.26760563380282"/>
+            <point key="canvasLocation" x="1937" y="-111"/>
         </scene>
         <!--My products-->
         <scene sceneID="BH6-gp-AW6">
@@ -218,7 +218,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="D0h-ZY-zcS">
-                                <rect key="frame" x="0.0" y="142" width="393" height="676"/>
+                                <rect key="frame" x="0.0" y="142" width="393" height="710"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="3iG-ny-6NJ" customClass="CustomTableViewCell" customModule="KulukeTVC" customModuleProvider="target">
@@ -296,13 +296,12 @@
                         <viewLayoutGuide key="safeArea" id="i8p-V6-TWT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="i8p-V6-TWT" firstAttribute="bottom" secondItem="D0h-ZY-zcS" secondAttribute="bottom" id="15f-Fv-he0"/>
                             <constraint firstItem="D0h-ZY-zcS" firstAttribute="top" secondItem="i8p-V6-TWT" secondAttribute="top" constant="39" id="1rG-fQ-jc2"/>
                             <constraint firstItem="i8p-V6-TWT" firstAttribute="trailing" secondItem="D0h-ZY-zcS" secondAttribute="trailing" id="2Zd-TD-ITO"/>
                             <constraint firstItem="uMY-5V-5Wt" firstAttribute="leading" secondItem="i8p-V6-TWT" secondAttribute="leading" id="8U2-EW-bqr"/>
                             <constraint firstItem="i8p-V6-TWT" firstAttribute="trailing" secondItem="uMY-5V-5Wt" secondAttribute="trailing" id="I3n-59-G7t"/>
                             <constraint firstItem="D0h-ZY-zcS" firstAttribute="leading" secondItem="i8p-V6-TWT" secondAttribute="leading" id="Yty-su-VJC"/>
-                            <constraint firstItem="D0h-ZY-zcS" firstAttribute="bottom" secondItem="i8p-V6-TWT" secondAttribute="bottom" id="ZoB-P9-4Xb"/>
+                            <constraint firstItem="D0h-ZY-zcS" firstAttribute="bottom" secondItem="DUQ-E5-blp" secondAttribute="bottom" id="ZoB-P9-4Xb"/>
                             <constraint firstItem="uMY-5V-5Wt" firstAttribute="top" secondItem="i8p-V6-TWT" secondAttribute="top" id="mhh-BS-7mU"/>
                             <constraint firstItem="D0h-ZY-zcS" firstAttribute="trailing" secondItem="i8p-V6-TWT" secondAttribute="trailing" id="pev-tI-qis"/>
                             <constraint firstItem="D0h-ZY-zcS" firstAttribute="top" relation="lessThanOrEqual" secondItem="uMY-5V-5Wt" secondAttribute="bottom" constant="8" symbolic="YES" id="qhg-OQ-0AA"/>
@@ -369,11 +368,16 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yWd-VC-9RZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2166" y="-871"/>
+            <point key="canvasLocation" x="1937" y="-841"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="7dT-8H-h4M">
+            <size key="intrinsicContentSize" width="252" height="44"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="d0j-mZ-H0z"/>
+        <segue reference="mPT-iA-okY"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AZ" width="25" height="24"/>

@@ -24,7 +24,10 @@ class NewStorageViewController: UITableViewController, UINavigationControllerDel
         super.viewDidLoad()
         
         // данный метод нужен для избавление от лишей разлиновки где нет контента под TableVIewCell
-        tableView.tableFooterView = UIView()
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0,
+                                                         y: 0,
+                                                         width: tableView.frame.size.width,
+                                                         height: 1))
   
         saveButton.isEnabled = false
         
